@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'auto_dispose_family_provider.g.dart';
 
 final class Counter extends Equatable {
   final int counter;
@@ -15,17 +17,36 @@ final class Counter extends Equatable {
   List<Object> get props => [counter];
 }
 
-final autoDisposeFamilyHelloProvider =
-    Provider.autoDispose.family<String, String>((ref, String name) {
-  ref.onDispose(() {
-    print('[autoDisposeFamilyHelloProvider($name)] disposed');
-  });
-  return 'Hello $name';
-});
+// final autoDisposeFamilyHelloProvider =
+//     Provider.autoDispose.family<String, String>((ref, String name) {
+//   ref.onDispose(() {
+//     print('[autoDisposeFamilyHelloProvider($name)] disposed');
+//   });
+//   return 'Hello $name';
+// });
 
-final counterProvider = Provider.autoDispose.family<int, Counter>((ref, count) {
+@riverpod
+String autoDisposeFamilyHello(
+  AutoDisposeFamilyHelloRef ref,
+  String value,
+) {
+  ref.onDispose(() {
+    print('[autoDisposeFamilyHelloProvider($value)] disposed');
+  });
+  return 'Hello $value';
+}
+
+// final counterProvider = Provider.autoDispose.family<int, Counter>((ref, count) {
+//   ref.onDispose(() {
+//     print('[counterProvider($count)] disposed');
+//   });
+//   return count.counter;
+// });
+
+@riverpod
+int counter(CounterRef ref, Counter count) {
   ref.onDispose(() {
     print('[counterProvider($count)] disposed');
   });
   return count.counter;
-});
+}
