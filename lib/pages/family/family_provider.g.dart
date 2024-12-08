@@ -6,7 +6,7 @@ part of 'family_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$familyHelloHash() => r'12af33ee59e8ee2d086db38fe446ca6f7ab66c8c';
+String _$familyHelloHash() => r'd4eabec707f7ce0b66895072c53625b781e4aa05';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -142,6 +142,8 @@ class FamilyHelloProvider extends Provider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FamilyHelloRef on ProviderRef<String> {
   /// The parameter `value` of this provider.
   String get value;
@@ -155,4 +157,4 @@ class _FamilyHelloProviderElement extends ProviderElement<String>
   String get value => (origin as FamilyHelloProvider).value;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

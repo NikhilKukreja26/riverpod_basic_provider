@@ -3,18 +3,16 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'family_provider.g.dart';
 
-// final familyHelloProvider = Provider.family<String, String>((ref, String name) {
+// final ProviderFamily<String, String> familyHelloProvider =
+//     Provider.family<String, String>((ref, String value) {
 //   ref.onDispose(() {
-//     print('[familyHelloProvider($name)] disposed');
+//     print('[familyHelloProvider($value)] disposed');
 //   });
-//   return 'Hello $name';
+//   return 'Hello $value';
 // });
 
 @Riverpod(keepAlive: true)
-String familyHello(
-  FamilyHelloRef ref,
-  String value,
-) {
+String familyHello(Ref ref, String value) {
   ref.onDispose(() {
     print('[familyHelloProvider($value)] disposed');
   });

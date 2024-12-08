@@ -1,23 +1,39 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auto_dispose_family_provider.g.dart';
 
-final class Counter extends Equatable {
-  final int counter;
-
+class Counter extends Equatable {
+  final int count;
   const Counter({
-    required this.counter,
+    required this.count,
   });
 
   @override
-  String toString() => 'Counter(counter: $counter)';
+  String toString() => 'Counter(count: $count)';
 
   @override
-  List<Object> get props => [counter];
+  List<Object> get props => [count];
 }
 
-// final autoDisposeFamilyHelloProvider =
+// final AutoDisposeProviderFamily<int, Counter> counterProvider =
+//     Provider.autoDispose.family<int, Counter>((ref, Counter counter) {
+//   ref.onDispose(() {
+//     print('[counterProvider($counter)] disposed');
+//   });
+//   return counter.count;
+// });
+
+@riverpod
+int counter(Ref ref, Counter count) {
+  ref.onDispose(() {
+    print('[counterProvider($count)] disposed');
+  });
+  return count.count;
+}
+
+// final AutoDisposeProviderFamily<String, String> autoDisposeFamilyHelloProvider =
 //     Provider.autoDispose.family<String, String>((ref, String name) {
 //   ref.onDispose(() {
 //     print('[autoDisposeFamilyHelloProvider($name)] disposed');
@@ -27,26 +43,11 @@ final class Counter extends Equatable {
 
 @riverpod
 String autoDisposeFamilyHello(
-  AutoDisposeFamilyHelloRef ref,
-  String value,
-) {
+  Ref ref, {
+  required String there,
+}) {
   ref.onDispose(() {
-    print('[autoDisposeFamilyHelloProvider($value)] disposed');
+    print('[autoDisposeFamilyHelloProvider($there)] disposed');
   });
-  return 'Hello $value';
-}
-
-// final counterProvider = Provider.autoDispose.family<int, Counter>((ref, count) {
-//   ref.onDispose(() {
-//     print('[counterProvider($count)] disposed');
-//   });
-//   return count.counter;
-// });
-
-@riverpod
-int counter(CounterRef ref, Counter count) {
-  ref.onDispose(() {
-    print('[counterProvider($count)] disposed');
-  });
-  return count.counter;
+  return 'Hello $there';
 }

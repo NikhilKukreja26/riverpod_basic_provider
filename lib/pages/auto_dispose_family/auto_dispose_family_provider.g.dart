@@ -6,8 +6,7 @@ part of 'auto_dispose_family_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$autoDisposeFamilyHelloHash() =>
-    r'dc4cd21b515fcd4ef9e90ceee92746bd468ea996';
+String _$counterHash() => r'c851b0d97417ef168838fc40062bedd8c928d4ed';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,134 +28,6 @@ class _SystemHash {
     return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
   }
 }
-
-/// See also [autoDisposeFamilyHello].
-@ProviderFor(autoDisposeFamilyHello)
-const autoDisposeFamilyHelloProvider = AutoDisposeFamilyHelloFamily();
-
-/// See also [autoDisposeFamilyHello].
-class AutoDisposeFamilyHelloFamily extends Family<String> {
-  /// See also [autoDisposeFamilyHello].
-  const AutoDisposeFamilyHelloFamily();
-
-  /// See also [autoDisposeFamilyHello].
-  AutoDisposeFamilyHelloProvider call(
-    String value,
-  ) {
-    return AutoDisposeFamilyHelloProvider(
-      value,
-    );
-  }
-
-  @override
-  AutoDisposeFamilyHelloProvider getProviderOverride(
-    covariant AutoDisposeFamilyHelloProvider provider,
-  ) {
-    return call(
-      provider.value,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'autoDisposeFamilyHelloProvider';
-}
-
-/// See also [autoDisposeFamilyHello].
-class AutoDisposeFamilyHelloProvider extends AutoDisposeProvider<String> {
-  /// See also [autoDisposeFamilyHello].
-  AutoDisposeFamilyHelloProvider(
-    String value,
-  ) : this._internal(
-          (ref) => autoDisposeFamilyHello(
-            ref as AutoDisposeFamilyHelloRef,
-            value,
-          ),
-          from: autoDisposeFamilyHelloProvider,
-          name: r'autoDisposeFamilyHelloProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$autoDisposeFamilyHelloHash,
-          dependencies: AutoDisposeFamilyHelloFamily._dependencies,
-          allTransitiveDependencies:
-              AutoDisposeFamilyHelloFamily._allTransitiveDependencies,
-          value: value,
-        );
-
-  AutoDisposeFamilyHelloProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.value,
-  }) : super.internal();
-
-  final String value;
-
-  @override
-  Override overrideWith(
-    String Function(AutoDisposeFamilyHelloRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: AutoDisposeFamilyHelloProvider._internal(
-        (ref) => create(ref as AutoDisposeFamilyHelloRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        value: value,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeProviderElement<String> createElement() {
-    return _AutoDisposeFamilyHelloProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is AutoDisposeFamilyHelloProvider && other.value == value;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, value.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
-}
-
-mixin AutoDisposeFamilyHelloRef on AutoDisposeProviderRef<String> {
-  /// The parameter `value` of this provider.
-  String get value;
-}
-
-class _AutoDisposeFamilyHelloProviderElement
-    extends AutoDisposeProviderElement<String> with AutoDisposeFamilyHelloRef {
-  _AutoDisposeFamilyHelloProviderElement(super.provider);
-
-  @override
-  String get value => (origin as AutoDisposeFamilyHelloProvider).value;
-}
-
-String _$counterHash() => r'd9fdbc7ea7a4f4a104542dba666b4abb16b8d514';
 
 /// See also [counter].
 @ProviderFor(counter)
@@ -270,6 +141,8 @@ class CounterProvider extends AutoDisposeProvider<int> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin CounterRef on AutoDisposeProviderRef<int> {
   /// The parameter `count` of this provider.
   Counter get count;
@@ -282,5 +155,136 @@ class _CounterProviderElement extends AutoDisposeProviderElement<int>
   @override
   Counter get count => (origin as CounterProvider).count;
 }
+
+String _$autoDisposeFamilyHelloHash() =>
+    r'1ad9d7860c9850bec1387c4314990676862fcaa3';
+
+/// See also [autoDisposeFamilyHello].
+@ProviderFor(autoDisposeFamilyHello)
+const autoDisposeFamilyHelloProvider = AutoDisposeFamilyHelloFamily();
+
+/// See also [autoDisposeFamilyHello].
+class AutoDisposeFamilyHelloFamily extends Family<String> {
+  /// See also [autoDisposeFamilyHello].
+  const AutoDisposeFamilyHelloFamily();
+
+  /// See also [autoDisposeFamilyHello].
+  AutoDisposeFamilyHelloProvider call({
+    required String there,
+  }) {
+    return AutoDisposeFamilyHelloProvider(
+      there: there,
+    );
+  }
+
+  @override
+  AutoDisposeFamilyHelloProvider getProviderOverride(
+    covariant AutoDisposeFamilyHelloProvider provider,
+  ) {
+    return call(
+      there: provider.there,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'autoDisposeFamilyHelloProvider';
+}
+
+/// See also [autoDisposeFamilyHello].
+class AutoDisposeFamilyHelloProvider extends AutoDisposeProvider<String> {
+  /// See also [autoDisposeFamilyHello].
+  AutoDisposeFamilyHelloProvider({
+    required String there,
+  }) : this._internal(
+          (ref) => autoDisposeFamilyHello(
+            ref as AutoDisposeFamilyHelloRef,
+            there: there,
+          ),
+          from: autoDisposeFamilyHelloProvider,
+          name: r'autoDisposeFamilyHelloProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$autoDisposeFamilyHelloHash,
+          dependencies: AutoDisposeFamilyHelloFamily._dependencies,
+          allTransitiveDependencies:
+              AutoDisposeFamilyHelloFamily._allTransitiveDependencies,
+          there: there,
+        );
+
+  AutoDisposeFamilyHelloProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.there,
+  }) : super.internal();
+
+  final String there;
+
+  @override
+  Override overrideWith(
+    String Function(AutoDisposeFamilyHelloRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: AutoDisposeFamilyHelloProvider._internal(
+        (ref) => create(ref as AutoDisposeFamilyHelloRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        there: there,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeProviderElement<String> createElement() {
+    return _AutoDisposeFamilyHelloProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is AutoDisposeFamilyHelloProvider && other.there == there;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, there.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin AutoDisposeFamilyHelloRef on AutoDisposeProviderRef<String> {
+  /// The parameter `there` of this provider.
+  String get there;
+}
+
+class _AutoDisposeFamilyHelloProviderElement
+    extends AutoDisposeProviderElement<String> with AutoDisposeFamilyHelloRef {
+  _AutoDisposeFamilyHelloProviderElement(super.provider);
+
+  @override
+  String get there => (origin as AutoDisposeFamilyHelloProvider).there;
+}
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

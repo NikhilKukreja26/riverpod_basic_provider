@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auto_dispose_provider.g.dart';
@@ -11,7 +12,7 @@ part 'auto_dispose_provider.g.dart';
 // });
 
 @riverpod
-String helloAutoDispose(HelloAutoDisposeRef ref) {
+String helloAutoDispose(Ref ref) {
   print('[helloAutoDisposeProvider] created');
   ref.onDispose(() {
     print('[helloAutoDisposeProvider] disposed');

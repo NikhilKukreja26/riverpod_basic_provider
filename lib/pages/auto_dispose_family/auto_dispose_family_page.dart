@@ -7,12 +7,15 @@ class AutoDisposeFamilyPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final helloNikhil = ref.watch(autoDisposeFamilyHelloProvider('Nikhil'));
-    final helloSanket = ref.watch(autoDisposeFamilyHelloProvider('Sanket'));
-    final helloManas = ref.watch(autoDisposeFamilyHelloProvider('Manas'));
+    final helloNikhil =
+        ref.watch(autoDisposeFamilyHelloProvider(there: 'Nikhil'));
+    final helloSanket =
+        ref.watch(autoDisposeFamilyHelloProvider(there: 'Sanket'));
+    final helloManas =
+        ref.watch(autoDisposeFamilyHelloProvider(there: 'Manas'));
 
-    ref.watch(counterProvider(const Counter(counter: 0)));
-    ref.watch(counterProvider(const Counter(counter: 0)));
+    ref.watch(counterProvider(const Counter(count: 0)));
+    ref.watch(counterProvider(const Counter(count: 0)));
     return Scaffold(
       appBar: AppBar(
         title: const Text('AutoDisposeFamilyProvider'),
